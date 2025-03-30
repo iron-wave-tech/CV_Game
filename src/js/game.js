@@ -1,4 +1,8 @@
-class Game {
+import { Boss } from './boss.js';
+import { Enemy } from './enemy.js';
+import { Projectile } from './projectile.js';
+
+export class Game {
     constructor(canvas) {
         this.canvas = canvas;
         this.initializeGame();

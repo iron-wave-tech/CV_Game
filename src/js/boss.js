@@ -1,4 +1,4 @@
-class Boss {
+export class Boss {
     constructor(canvas) {
         this.canvas = canvas;
         this.width = 240;

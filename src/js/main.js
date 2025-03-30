@@ -1,3 +1,11 @@
+import { Game } from './game.js';
+import { Player } from './player.js';
+import { AudioManager } from './audio.js';
+import { Enemy } from './enemy.js';
+import { Projectile } from './projectile.js';
+import { Boss } from './boss.js';
+import '../css/styles.css';
+
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('gameCanvas');
     const game = new Game(canvas);

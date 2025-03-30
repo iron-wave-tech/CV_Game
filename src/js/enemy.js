@@ -1,4 +1,4 @@
-class Enemy {
+export class Enemy {
     constructor(canvas, x, y) {
         this.canvas = canvas;
         this.width = 80;
