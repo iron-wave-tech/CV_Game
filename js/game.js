@@ -40,10 +40,12 @@ class Game {
 • Created a custom browser widget, allowing for seamless navigation across internal knowledge bases and improving agent workflows.`
             },
             {
-                title: "Skill Arsenal",
-                subtitle: "Welcome to the Armory!",
-                content: `
+                title: "Mission Control",
+                subtitle: "Where Skills Are Born!",
+                content: `<p>From Mission Control, I command a suite of tools and technologies to transform bold ideas into extraordinary solutions.</p>
 <div class="skill-arsenal">
+    
+    
     <div class="skill-category">
         <div class="skill-category-title">Frontend & Backend Expertise</div>
         <div class="skill-list">
@@ -129,12 +131,15 @@ class Game {
             {
                 title: "You've reached the final stage! Congratulations!",
                 subtitle: "Let's connect and create something extraordinary together!",
-                content: `<br> Thank you for playing! I hope you enjoyed discovering more about my career journey and skills. It would be amazing to collaborate and create something extraordinary together. Connect with me via email or LinkedIn, I’d love to hear from you!`
+                content: `<br> Thank you for playing! I hope you enjoyed discovering more about my career journey and skills. It would be amazing to collaborate and create something extraordinary together. Connect with me via email or LinkedIn, I'd love to hear from you!`
             }
         ];
 
         this.resize();
         window.addEventListener('resize', () => this.resize());
+        
+        // Show welcome screen when game starts
+        this.showWelcomeScreen();
     }
 
     initializeGame() {
@@ -276,8 +281,18 @@ class Game {
         const title = overlay.querySelector('.milestone-title');
         const body = overlay.querySelector('.milestone-body');
         
-        title.textContent = "FINAL CHALLENGE";
-        body.innerHTML = `<h3>Boss Battle!</h3><p>Defeat the mega UFO to complete your mission!</p>`;
+        title.textContent = "Hobbies & Interests";
+        body.innerHTML = `
+            <h3>Beyond the Code</h3>
+            <p>When I'm not engineering digital solutions, I embrace adventure:</p>
+            <ul>
+                <li>Sports: Continuously challenging myself both physically and mentally to grow stronger.</li>
+                <li>Traveling: Immersing myself in new cultures and experiences to spark creativity and inspiration.</li>
+                <li>Tech Enthusiasm: Staying curious and up-to-date with the latest innovations shaping the industry.</li>
+                <li>Photography: Capturing moments and perspectives through the lens of technology.</li>
+                <li>Gaming: Exploring virtual worlds and interactive experiences.</li>
+            </ul>
+            <p>Now it's time to defeat the mega boss to complete your mission!</p>`;
         overlay.classList.remove('hidden');
 
         const closeButton = overlay.querySelector('.close-button');
@@ -367,4 +382,45 @@ class Game {
         body.innerHTML = `<p>Final Score: ${this.score}</p><p>Thanks for playing!</p>`;
         overlay.classList.remove('hidden');
     }
-} 
+
+    showWelcomeScreen() {
+        const overlay = document.getElementById('overlay');
+        const title = overlay.querySelector('.milestone-title');
+        const body = overlay.querySelector('.milestone-body');
+        const closeButton = overlay.querySelector('.close-button');
+        
+        // Hide the continue/close button
+        closeButton.style.display = 'none';
+        
+        title.textContent = "Welcome to Dmitrii Lipko's Cosmic Quest!";
+        body.innerHTML = `
+            <div class="final-milestone">
+                <h3>Your Mission Begins</h3>
+                <p>The universe is brimming with mysteries, but alien obstacles stand in the way of uncovering them. As you take on challenges and overcome each alien, you'll unlock new insights into my skills, passions, and career journey.</p>
+                <p>This isn't just a game—it's an exploration of creativity, innovation, and discovery. Together, let's face the aliens and unveil the extraordinary story that lies ahead.</p>
+                <button id="startGameBtn" class="play-again-btn">Start Mission</button>
+            </div>
+        `;
+        
+        // Add event listener for the Start Mission button
+        const startGameBtn = document.getElementById('startGameBtn');
+        startGameBtn.onclick = () => {
+            overlay.classList.add('hidden');
+            // Reset the close button display for future milestones
+            closeButton.style.display = '';
+        };
+        
+        overlay.classList.remove('hidden');
+    }
+}
+
+// Add click handler for the watermark
+document.addEventListener('DOMContentLoaded', () => {
+    const gameContainer = document.getElementById('game-container');
+    gameContainer.addEventListener('click', (e) => {
+        // Check if the click was on the watermark (::before element)
+        if (e.target === gameContainer && e.offsetX > gameContainer.offsetWidth - 300 && e.offsetY > gameContainer.offsetHeight - 50) {
+            window.open('https://www.linkedin.com/in/dmitrii-lipko/', '_blank');
+        }
+    });
+}); 
