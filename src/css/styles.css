@@ -20,7 +20,7 @@
 }
 
 body {
-    background: #000033;
+    background: var(--background-color);
     color: var(--text-color);
     font-family: 'Press Start 2P', monospace;
     overflow: hidden;
@@ -29,6 +29,7 @@ body {
     align-items: center;
     min-height: 100vh;
     position: relative;
+    touch-action: none; /* Prevent default touch actions */
 }
 
 /* Create starfield background */
@@ -78,10 +79,12 @@ body::after {
 #game-container {
     position: relative;
     width: 100%;
+    height: 100vh;
     max-width: 1200px;
-    height: 800px;
     margin: 0 auto;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 #game-container::before {
@@ -414,31 +417,97 @@ body::after {
     animation: pulse 2s infinite;
 }
 
+/* Mobile Controls */
 .mobile-controls {
-    display: none;
-    position: absolute;
+    display: none; /* Hidden by default, shown on mobile */
+    position: fixed;
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    gap: 20px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-controls.active {
+    display: flex;
+}
+
+.mobile-controls .movement-controls {
+    display: flex;
+    gap: 10px;
 }
 
 .mobile-controls button {
     background-color: rgba(0, 255, 255, 0.1);
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 1rem;
+    padding: 15px;
     font-family: 'Press Start 2P', monospace;
     cursor: pointer;
     transition: all 0.3s ease;
     text-shadow: 0 0 5px var(--primary-color);
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
 }
 
 .mobile-controls button:active {
     background-color: var(--primary-color);
     color: var(--background-color);
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.mobile-controls .shoot-button {
+    background-color: rgba(255, 0, 255, 0.1);
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.mobile-controls .shoot-button:active {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #game-container {
+        height: 100vh;
+    }
+
+    .mobile-controls {
+        display: flex;
+    }
+
+    #score {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+
+    #game-container::before {
+        font-size: 0.8em;
+        right: 5px;
+    }
+}
+
+/* Landscape Mode Adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .mobile-controls {
+        bottom: 10px;
+    }
+
+    .mobile-controls button {
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        font-size: 20px;
+    }
 }
 
 @keyframes popIn {
@@ -449,21 +518,6 @@ body::after {
     100% {
         transform: scale(1);
         opacity: 1;
-    }
-}
-
-@media (max-width: 768px) {
-    .mobile-controls {
-        display: flex;
-    }
-    
-    #game-container {
-        height: 100vh;
-    }
-    
-    .milestone-content {
-        padding: 1rem;
-        font-size: 0.9em;
     }
 }
 
