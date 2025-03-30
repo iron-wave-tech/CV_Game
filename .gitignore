@@ -15,7 +15,6 @@ Thumbs.db
 
 # Dependencies
 node_modules/
-yarn.lock
 
 # Build output
 dist/
