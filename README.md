@@ -1,135 +1,90 @@
-# Dmitrii Lipko's Interactive CV Space Game
+# CV Game - Space Invaders Resume
 
-An interactive space-themed CV game built with HTML5 Canvas and JavaScript.
+An interactive resume in the form of a Space Invaders-style game. Fight through waves of enemies to unlock milestones and learn about my professional experience!
 
-## Setup and Installation
+## 🎮 Play Now
 
-### Prerequisites
-- Git installed on your system
-- GitHub account
-- Basic knowledge of terminal commands
+Visit [https://iron-wave-tech.github.io/CV_Game/](https://iron-wave-tech.github.io/CV_Game/) to play the game directly in your browser.
 
-### Local Setup
+## 🚀 Features
+
+- Classic Space Invaders gameplay mechanics
+- Interactive resume milestones
+- Responsive design for both desktop and mobile
+- Modern visual effects and animations
+- Progressive difficulty increase
+
+## 🛠️ Tech Stack
+
+- Vanilla JavaScript (ES6+)
+- HTML5 Canvas for rendering
+- CSS3 for styling
+- Vite for building and development
+- GitHub Actions for CI/CD
+- GitHub Pages for hosting
+
+## 📦 Installation
+
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/dmitrii_cv_space.git
-cd dmitrii_cv_space
+git clone https://github.com/iron-wave-tech/CV_Game.git
+cd CV_Game
 ```
 
-2. Open the project in your preferred code editor
-
-3. To run locally, you can use any local server. For example:
-   - Using Python: `python -m http.server 8000`
-   - Using Node.js: `npx serve`
-   - Using VS Code's Live Server extension
-
-### Pushing to GitHub
-
-1. Initialize Git in your project (if not already done):
+2. Install dependencies:
 ```bash
-git init
+yarn install
 ```
 
-2. Create a `.gitignore` file:
+## 🔧 Development
+
+Start the development server:
 ```bash
-echo "node_modules/" > .gitignore
-echo ".DS_Store" >> .gitignore
+yarn dev
 ```
 
-3. Add your files to Git:
+The game will be available at `http://localhost:9000`
+
+## 🏗️ Building
+
+Build for production:
 ```bash
-git add .
+yarn build
 ```
 
-4. Commit your changes:
+Preview the production build:
 ```bash
-git commit -m "Initial commit"
+yarn preview
 ```
 
-5. Create a new repository on GitHub:
-   - Go to https://github.com/new
-   - Name your repository (e.g., "dmitrii_cv_space")
-   - Don't initialize with README (since we already have one)
-   - Click "Create repository"
+## 🚀 Deployment
 
-6. Link your local repository to GitHub:
-```bash
-git remote add origin https://github.com/yourusername/dmitrii_cv_space.git
-```
+The game is automatically deployed to GitHub Pages when changes are pushed to the main branch. The deployment process:
 
-7. Push your code to GitHub:
-```bash
-git push -u origin main
-```
+1. Builds the project with the correct base URL
+2. Uploads the build artifacts
+3. Deploys to GitHub Pages
 
-### Updating the Project
+## 🎮 Controls
 
-After making changes to your code:
+### Desktop
+- Left Arrow (←) - Move left
+- Right Arrow (→) - Move right
+- Spacebar - Shoot
 
-1. Stage your changes:
-```bash
-git add .
-```
+### Mobile
+- Left Button - Move left
+- Right Button - Move right
+- Fire Button - Shoot
 
-2. Commit your changes:
-```bash
-git commit -m "Description of your changes"
-```
+## 📝 License
 
-3. Push to GitHub:
-```bash
-git push
-```
+ISC License
 
-## Project Structure
+## 🤝 Contributing
 
-```
-dmitrii_cv_space/
-├── index.html
-├── styles.css
-├── js/
-│   └── game.js
-└── README.md
-```
-
-## Features
-
-- Interactive space-themed CV game
-- Responsive design
-- Skill showcase with visual effects
-- Mobile-friendly controls
-- Animated starfield background
-- Interactive elements with hover effects
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- JavaScript
-- Canvas API
-- Google Fonts (Press Start 2P)
-
-## Customization
-
-### Adjusting the Watermark Position
-
-To modify the position of the "A Dmitrii Lipko Production" watermark:
-
-1. Open `styles.css`
-2. Find the `#game-container::before` selector
-3. Adjust the position using these properties:
-```css
-#game-container::before {
-    top: 35px;    /* Adjust vertical position */
-    right: 10px;  /* Adjust horizontal position */
-}
-```
-
-- Increase `top` value to move it down
-- Decrease `top` value to move it up
-- Increase `right` value to move it left
-- Decrease `right` value to move it right
-
-## License
-
-This project is open source and available under the MIT License. 
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request 

@@ -3,14 +3,14 @@ export class AudioManager {
         // Commented out sound initialization for now
         /*
         this.sounds = {
-            shoot: new Audio('/CV_Game/sounds/shoot.wav'),
-            explosion: new Audio('/CV_Game/sounds/explosion.wav'),
-            milestone: new Audio('/CV_Game/sounds/milestone.wav'),
-            gameOver: new Audio('/CV_Game/sounds/gameover.wav')
+            shoot: new Audio(`${process.env.BASE_URL}sounds/shoot.wav`),
+            explosion: new Audio(`${process.env.BASE_URL}sounds/explosion.wav`),
+            milestone: new Audio(`${process.env.BASE_URL}sounds/milestone.wav`),
+            gameOver: new Audio(`${process.env.BASE_URL}sounds/gameover.wav`)
         };
 
         // Background music
-        this.bgMusic = new Audio('/CV_Game/sounds/background.mp3');
+        this.bgMusic = new Audio(`${process.env.BASE_URL}sounds/background.mp3`);
         this.bgMusic.loop = true;
         this.bgMusic.volume = 0.3;
 
